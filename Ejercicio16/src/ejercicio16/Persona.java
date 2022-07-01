@@ -8,6 +8,7 @@ public class Persona {
     char sexo=hombre;
     double peso=0, altura=0;
 
+    
     //Constructores
     public Persona() {
         this.dni = generaDNI();
@@ -16,31 +17,33 @@ public class Persona {
     public Persona(String nombre, int edad, char sexo) {
         this.nombre = nombre;
         this.edad = edad;
-        this.sexo = hombre;
+        this.sexo = sexo;
         this.dni = generaDNI();
     }
 
-    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
+    public Persona(String nombre, int edad, String dni, char sexo, double peso, double altura) {
         this.nombre = nombre;
         this.edad = edad;
-        this.dni = generaDNI();
+        this.dni = dni;
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
     }
 
+    
     //Métodos
     public int calcularIMC(double peso, double altura) {
         double imc;
+        final int sobrepeso=1, ideal=0, delgado=-1;
         
         imc = peso/(altura*altura);
         
         if(imc<20){
-            return -1;
+            return delgado;
         }else if(imc>=20 && imc<=25){
-            return 0;
+            return ideal;
         }else{
-            return 1;
+            return sobrepeso;
         }
     }
     
@@ -48,9 +51,9 @@ public class Persona {
         return edad>=18;
     }
     
-    public  void comprobarSexo(){
-        if (this.sexo!='H' && this.sexo!='M') {
-            this.sexo = hombre;
+    private void comprobarSexo(char s){
+        if (s!='H' && s!='M') {
+            s = hombre;
         }
     }
     
@@ -64,7 +67,7 @@ public class Persona {
                 "  Altura: "+this.altura;
     }
     
-    public static int generaNumeroRandom(){
+    public int generaNumeroRandom(){
         double numDouble;
         int numInt;
         
@@ -79,18 +82,19 @@ public class Persona {
         return numInt;
     }
     
-    public static String generaDNI(){
-        String dni;
+    private String generaDNI(){
+        String dniGenerada;
         String[] letras = {"T","R","W","A","G","M","Y","F","P","D","X","B","N","J","Z","S","Q","V","H","L","C","K","E"};
         int num, i;
         
         num = generaNumeroRandom();
         i = num%23;
         
-        dni = letras[i]+String.valueOf(num);
+        dniGenerada = letras[i]+String.valueOf(num);
         
-        return dni;
+        return dniGenerada;
     }
+    
     
     //Métodos set
     public void setNombre(String nombre) {

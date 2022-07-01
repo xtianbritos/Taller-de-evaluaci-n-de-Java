@@ -90,18 +90,19 @@ public class Ejercicio16 {
     }
 
     public static void main(String[] args) {
-        String nombre;
+        String nombre, dni;
         int edad;
         double peso, altura;
         char sexo;
         
-        nombre = JOptionPane.showInputDialog("Ingrese un nombre");
-        edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese una edad"));
-        sexo = (JOptionPane.showInputDialog("Ingrese un sexo")).toUpperCase().charAt(0);
-        peso = Double.parseDouble(JOptionPane.showInputDialog("Ingrese un peso"));
-        altura = Double.parseDouble(JOptionPane.showInputDialog("Ingrese una altura"));
+        nombre = JOptionPane.showInputDialog("Ingrese su nombre");
+        edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad"));
+        dni = JOptionPane.showInputDialog("Ingrese su DNI");
+        sexo = (JOptionPane.showInputDialog("Ingrese su sexo")).toUpperCase().charAt(0);
+        peso = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su peso"));
+        altura = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su altura"));
         
-        Persona p1 = new Persona(nombre, edad, sexo, peso, altura);
+        Persona p1 = new Persona(nombre, edad, dni, sexo, peso, altura);
         Persona p2 = new Persona(nombre, edad, sexo);
         Persona p3 = new Persona();
         
