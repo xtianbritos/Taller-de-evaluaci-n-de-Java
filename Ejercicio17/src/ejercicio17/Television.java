@@ -16,7 +16,7 @@ public class Television extends Electrodomestico{
         this.tdt = tdtDefault;
     }
 
-    public Television(int precio, int peso) {
+    public Television(double precio, int peso) {
         super(precio, peso);
         this.resolusion = pulgadasDefault;
         this.tdt = tdtDefault;
@@ -38,19 +38,17 @@ public class Television extends Electrodomestico{
         return tdt;
     }
     
-    public double precioFinal(int res, boolean tdt){
-        double precioFinalTV;
+    @Override
+    public void precioFinal(){
         
-        precioFinalTV = super.precioFinal(consumoEnergetico, peso);
+        super.precioFinal();
         
-        if(res>40){
-            precioFinalTV+=(precioFinalTV*30/100);
+        if(resolusion>40){
+            precioBase+=(precioBase*30/100);
         }
         
         if(tdt == true){
-            precioFinalTV+=50;
+            precioBase+=50;
         }
-        
-        return precioFinalTV;
     }
 }

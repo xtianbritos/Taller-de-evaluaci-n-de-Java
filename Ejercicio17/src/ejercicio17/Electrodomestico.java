@@ -10,11 +10,13 @@ package ejercicio17;
  * @author Santi
  */
 public class Electrodomestico {
-    final int precioBaseDefault=100, pesoDefault=5;
+    final double precioBaseDefault=100;
+    final int pesoDefault=5;
     final String colorDefault="Blanco";
     final char consumoEnergeticoDefault='F';
     
-    int precioBase, peso;
+    double precioBase;
+    int peso;
     String color;
     char consumoEnergetico;
     
@@ -27,14 +29,14 @@ public class Electrodomestico {
         this.consumoEnergetico = consumoEnergeticoDefault;
     }
 
-    public Electrodomestico(int precio, int peso) {
+    public Electrodomestico(double precio, int peso) {
         this.precioBase = precio;
         this.peso = peso;
         this.color = colorDefault;
         this.consumoEnergetico = consumoEnergeticoDefault;
     }
 
-    public Electrodomestico(int precio, int peso, String color, char consumoEnergetico) {
+    public Electrodomestico(double precio, int peso, String color, char consumoEnergetico) {
         this.precioBase = precio;
         this.peso = peso;
         this.color = comprobarColor(color);
@@ -42,7 +44,7 @@ public class Electrodomestico {
     }
 
     //Métodos get
-    public int getPrecioBase() {
+    public double getPrecioBase() {
         return precioBase;
     }
 
@@ -75,46 +77,43 @@ public class Electrodomestico {
         return color;
     }
     
-    public int precioFinal(char letra, int peso){
-        int precioFinal=0;
+    public void precioFinal(){
         
-        switch (letra){
+        switch (consumoEnergetico){
             case 'A':{
-                precioFinal+=100;
+                precioBase+=100;
                 break;
             }
             case 'B':{
-                precioFinal+=80;
+                precioBase+=80;
                 break;
             }
             case 'C':{
-                precioFinal+=60;
+                precioBase+=60;
                 break;
             }
             case 'D':{
-                precioFinal+=50;
+                precioBase+=50;
                 break;
             }
             case 'E':{
-                precioFinal+=30;
+                precioBase+=30;
                 break;
             }
             case 'F':{
-                precioFinal+=10;
+                precioBase+=10;
                 break;
             }
         }
         
         if(peso>=0 && peso<=19){
-            precioFinal+=10;
+            precioBase+=10;
         }else if(peso<=49){
-            precioFinal+=50;
+            precioBase+=50;
         }else if(peso<=79){
-            precioFinal+=80;
+            precioBase+=80;
         }else if(peso>80){
-            precioFinal+=100;
+            precioBase+=100;
         }
-        
-        return precioFinal;
     }
 }
