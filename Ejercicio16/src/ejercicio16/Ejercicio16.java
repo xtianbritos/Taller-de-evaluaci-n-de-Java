@@ -1,7 +1,6 @@
 
 package ejercicio16;
 
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 /*
@@ -68,16 +67,25 @@ tiene sobrepeso o por debajo de su peso ideal con un mensaje.
 public class Ejercicio16 {
     
     public static void mostrarSobrepeso(int res, int n){
+        
         switch(res) {
             case -1:
-                JOptionPane.showMessageDialog(null, "La persona "+n+"está en su peso ideal");
+                JOptionPane.showMessageDialog(null, "La persona "+n+" está por dabejo de su peso ideal");
                 break;
             case 0:
-                JOptionPane.showMessageDialog(null, "La persona "+n+" está por dabejo de su peso ideal");
+                JOptionPane.showMessageDialog(null, "La persona "+n+" está en su peso ideal");
                 break;
             case 1:
                 JOptionPane.showMessageDialog(null, "La persona "+n+" tiene sobrepeso");
                 break;
+        }
+    }
+    
+    public static void mostrarSiEsMayor(boolean res){
+        if(res){
+            JOptionPane.showMessageDialog(null, "Es mayor de edad");
+        }else{
+            JOptionPane.showMessageDialog(null, "Es menor de edad");
         }
     }
 
@@ -87,11 +95,11 @@ public class Ejercicio16 {
         double peso, altura;
         char sexo;
         
-        nombre = JOptionPane.showInputDialog("Increse un nombre");
+        nombre = JOptionPane.showInputDialog("Ingrese un nombre");
         edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese una edad"));
-        sexo = (JOptionPane.showInputDialog("Increse un sexo")).toUpperCase().charAt(0);
-        peso = Double.parseDouble(JOptionPane.showInputDialog("Increse un peso"));
-        altura = Double.parseDouble(JOptionPane.showInputDialog("Increse una altura"));
+        sexo = (JOptionPane.showInputDialog("Ingrese un sexo")).toUpperCase().charAt(0);
+        peso = Double.parseDouble(JOptionPane.showInputDialog("Ingrese un peso"));
+        altura = Double.parseDouble(JOptionPane.showInputDialog("Ingrese una altura"));
         
         Persona p1 = new Persona(nombre, edad, sexo, peso, altura);
         Persona p2 = new Persona(nombre, edad, sexo);
@@ -105,20 +113,21 @@ public class Ejercicio16 {
         
         int res = p1.calcularIMC(p1.peso, p1.altura);
         mostrarSobrepeso(res, 1);
+        boolean mayor = p1.esMayorDeEdad(p1.edad);
+        mostrarSiEsMayor(mayor);
+        JOptionPane.showMessageDialog(null, p1.toString());
         
         res = p2.calcularIMC(p2.peso, p2.altura);
         mostrarSobrepeso(res, 2);
+        mayor = p2.esMayorDeEdad(p2.edad);
+        mostrarSiEsMayor(mayor);
+        JOptionPane.showMessageDialog(null, p2.toString());
 
         res = p3.calcularIMC(p3.peso, p3.altura);
         mostrarSobrepeso(res, 3);
+        mayor = p3.esMayorDeEdad(p3.edad);
+        mostrarSiEsMayor(mayor);
+        JOptionPane.showMessageDialog(null, p3.toString());
     }
     
 }
-
-/*
-si la persona está en su peso ideal,
-si esta fórmula devuelve un valor menor que 20, la función devuelve un -1,
-si devuelve un número entre 20 y 25 (incluidos),
-significa que está por debajo de su peso ideal la función devuelve un 0 
-y si devuelve un valor mayor que 25 significa que tiene sobrepeso, la función devuelve un 1.
-*/

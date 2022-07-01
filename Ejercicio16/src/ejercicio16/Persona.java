@@ -31,10 +31,13 @@ public class Persona {
 
     //Métodos
     public int calcularIMC(double peso, double altura) {
+        double imc;
         
-        if(peso/(altura*altura)<20){
+        imc = peso/(altura*altura);
+        
+        if(imc<20){
             return -1;
-        }else if(peso/(altura*altura)>=20 && peso/(altura*altura)< 25){
+        }else if(imc>=20 && imc<=25){
             return 0;
         }else{
             return 1;
@@ -42,11 +45,7 @@ public class Persona {
     }
     
     public boolean esMayorDeEdad(int edad){
-        if(edad>=18){
-            return true;
-        }else{
-            return false;
-        }
+        return edad>=18;
     }
     
     public  void comprobarSexo(){
@@ -58,11 +57,11 @@ public class Persona {
     @Override
     public String toString(){
         return "Nombre: "+this.nombre+
-                " Edad: "+this.edad+
-                " DNI: "+this.dni+
-                " Sexo: "+this.sexo+
-                " Peso: "+this.peso+
-                " Altura: "+this.altura;
+                "  Edad: "+this.edad+
+                "  DNI: "+this.dni+
+                "  Sexo: "+this.sexo+
+                "  Peso: "+this.peso+
+                "  Altura: "+this.altura;
     }
     
     public static int generaNumeroRandom(){
@@ -114,5 +113,4 @@ public class Persona {
         this.altura = altura;
     }
     
-
 }
