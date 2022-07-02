@@ -99,8 +99,8 @@ public class Ejercicio16 {
         edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad"));
         dni = JOptionPane.showInputDialog("Ingrese su DNI");
         sexo = (JOptionPane.showInputDialog("Ingrese su sexo")).toUpperCase().charAt(0);
-        peso = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su peso"));
-        altura = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su altura"));
+        peso = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su peso en kilos"));
+        altura = Double.parseDouble(JOptionPane.showInputDialog("Ingrese su altura en metros"));
         
         Persona p1 = new Persona(nombre, edad, dni, sexo, peso, altura);
         Persona p2 = new Persona(nombre, edad, sexo);

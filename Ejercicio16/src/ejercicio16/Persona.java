@@ -90,7 +90,7 @@ public class Persona {
         num = generaNumeroRandom();
         i = num%23;
         
-        dniGenerada = letras[i]+String.valueOf(num);
+        dniGenerada = String.valueOf(num)+letras[i];
         
         return dniGenerada;
     }
